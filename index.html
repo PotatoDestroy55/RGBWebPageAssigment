@@ -15,22 +15,29 @@
     <div class="container">
 
         <div class="imagenFlex">
-            <div class="cuadroImg">
-                <img class="imgCambiante" id="testImg" name="myImage" src="fotos_del_sitio/1.jpg">
-            </div>
+			<div class="imagenSelectData">
+				<div class="cuadroImg">
+					<img class="imgCambiante" id="testImg" name="myImage" src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
+				</div>
 
-            <form method="" action="" name="myForm">
-                <select size="6" name="switch" onchange="switchImage();">
-                    <option value="1">Imagen 1</option>
-                    <option value="2">Imagen 2</option>
-                    <option value="3">Imagen 3</option>
-                    <option value="4">Imagen 4</option>
-                    <option value="5">Imagen 5</option>
-                    <option value="6">Imagen 6</option>
-                    <option value="7">Imagen 7</option>
-                </select>
-            </form>
+				
+				
+				<form method="" action="" name="myForm">
+					<select size="7" name="switch" onchange="switchImage();">
+						<option value="1">Imagen 1</option>
+						<option value="2">Imagen 2</option>
+						<option value="3">Imagen 3</option>
+						<option value="4">Imagen 4</option>
+						<option value="5">Imagen 5</option>
+						<option value="6">Imagen 6</option>
+						<option value="7">Imagen 7</option>
+					</select>
+				</form>
+			</div>
+			<div id="metaData" class="respuestaFlex" name="myMetaData"></div>
         </div>
+
+        
 
         <div class="grafosFlex">
             <div id="barraRoja"></div>
@@ -38,7 +45,10 @@
             <div id="barraAzul"></div>  
         </div>
           
+        
     </div>
+
+    
 
     <script src="js/app.js"></script>
 </body>
