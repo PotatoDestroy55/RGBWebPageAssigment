@@ -54,6 +54,8 @@
 .respuestaFlex
 {
     margin-top: 30px;
+    line-height: 2rem;
+    font-family: 'Source Code Pro', serif;
 }
 select{
     appearance: none;
