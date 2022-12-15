@@ -7,9 +7,9 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
-
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+
     <title>RGBViewer</title>
 </head>
 <body class="RGBWEB">
@@ -18,13 +18,13 @@
         <div class="imagenFlex">
 			<div class="imagenSelectData">
 				<div class="cuadroImg">
-					<img class="imgCambiante" id="testImg" name="myImage" src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
+					<img class="img-thumbnail" id="testImg" name="myImage" src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
 				</div>
 
 				
 				
-				<form method="" action="" name="myForm">
-					<select size="7" name="switch" onchange="switchImage();">
+				<form method="" action="" name="myForm" class="img-thumbnail">
+					<select size="7" name="switch" class="form-control" onchange="switchImage();">
 						<option value="1">Imagen 1</option>
 						<option value="2">Imagen 2</option>
 						<option value="3">Imagen 3</option>
@@ -35,7 +35,11 @@
 					</select>
 				</form>
 			</div>
-			<div id="metaData" class="respuestaFlex" name="myMetaData"></div>
+			<h2>Información de la imagen</h2>
+			<div class="well well-lg" >
+				<div id="metaData" class="respuestaFlex" name="myMetaData"></div>
+			</div>
+			
         </div>
 
         

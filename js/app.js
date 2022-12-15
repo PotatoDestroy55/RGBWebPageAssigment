@@ -16,7 +16,8 @@ fetch('json/imagen1.json')
 	.then((response) => {
 		return response.json(); 
 	})
-	.then((json) => metaData.innerHTML= json.nombre + "<br>" + json.formato + "<br>"+ json.peso+ "<br>"+json.url+ "<br>"+json.res+ "<br>"+ json.des + "<br>"+json.date);
+	.then((json) => metaData.innerHTML = 
+	"Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: "+ json.peso+ "<br>Url: "+json.url+ "<br>Resolución: "+json.res+ "<br>Descripción: "+ json.des + "<br>Fecha de creación: "+json.date);
 
 for (var i = 1; i <= 7; i++) {
 	imageList[i] = new Image(70, 70);
@@ -33,7 +34,7 @@ function switchImage() {
 	.then((response) => {
 		return response.json(); 
 	})
-	.then((json) => metaData.innerHTML= json.nombre + "<br>" + json.formato + "<br>"+ json.peso+ "<br>"+json.url+ "<br>"+json.res+ "<br>"+ json.des + "<br>"+json.date);
+	.then((json) => metaData.innerHTML= "Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: "+ json.peso+ "<br>Url: "+json.url+ "<br>Resolución: "+json.res+ "<br>Descripción: "+ json.des + "<br>Fecha de creación: "+json.date);
 	//document.getElementById('metaData').innerHTML='regeStr';
 }
 
