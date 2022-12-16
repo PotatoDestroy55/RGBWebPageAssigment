@@ -1,6 +1,6 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
-}
+  }
 
 .RGBWEB{
     background-color: aliceblue;
@@ -8,12 +8,18 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    .container:  left;
 }
 
-
-
-
+.container{
+    padding: 10px;
+    border-width: 3px;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: flex-start;
+    width: 945px;
+    height: 915px;
+}
 
 .imagenSelectData
 {
@@ -24,12 +30,9 @@
 }
 
 .imagenFlex{
-    align-items: center;
     display:  flex;
     flex-direction: column;
     column-gap: 40px;
-    
-    
     border-width: 3px;
     padding: 20px;
     
@@ -40,15 +43,15 @@
     width: 100%;
 }
 .imgCambiante{
-	display: block;
-	max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 
 .respuestaFlex
 {
     line-height: 3rem;
     font-family: 'Source Code Pro', serif;
-	font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 select{
     appearance: none;
@@ -63,34 +66,23 @@ select{
     cursor: inherit;
     line-height: inherit;
     font-weight: bold;
-
+    color: rgb(34, 37, 40); 
 }
-
-
 
 .grafosFlex{
     padding: 0;
-
+    padding-left: 20px;
     display: flex;
-    flex-direction: row;
-    height: 100px;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+
+    .footer_copyright {
+    display: flex;
+    justify-content: center;
     align-items: center;
-}
+    width: fit-content;
+    margin: 0 auto;
+    }
 
-.barraRoja{
-size: portrait;
-
-}
-
-
-.container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 20px;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-
-}
+  
