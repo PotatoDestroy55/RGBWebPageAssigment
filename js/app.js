@@ -3,8 +3,9 @@
 const imagen = document.getElementById('testImg');
 const output = document.getElementById('salida');
 const metaData = document.getElementById('metaData');
-var c = document.querySelector('canvas');
-var ctx = c.getContext('2d');
+var c = document.getElementById('canvas');
+var ctx = c.getContext("2d");
+
 const red = [];
 const green = [];
 const blue = [];
@@ -12,12 +13,15 @@ const alpha = [];
 const idLinksImages = ["gJ8gwC8Q", "xdkxQJC0", "3xxfLbQ0", "zXjPFY61", "fRq21jM2", "0NLtykM7", "6qKYCMh3"];
 var contador = 0;
 
+
+
 //Variables para tomar el tamaño cortado
 var pointW = 0;
 var pointH = 0;
 var pointX = 0;
 var pointY = 0;
 
+//ctx.drawImage(imagen, 0, 0,c.width, c.height);
 
 var imageList = Array();
 
@@ -37,7 +41,8 @@ function switchImage() {
 	var selectedImage = document.myForm.switch.options[document.myForm.switch.selectedIndex].value;
 	
 	document.myImage.src = imageList[selectedImage].src;
-
+	
+	
 	
 	fetch('json/imagen' + (selectedImage)+'.json')
 	.then((response) => {
@@ -45,6 +50,7 @@ function switchImage() {
 	})
 	.then((json) => metaData.innerHTML= "Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: "+ json.peso+ "<br>Url: "+json.url+ "<br>Resolución: "+json.res+ "<br>Descripción: "+ json.des + "<br>Fecha de creación: "+json.date);
 	//document.getElementById('metaData').innerHTML='regeStr';
+	ctx.drawImage(imagen, 0, 0,c.width, c.height);
 }
 
 
@@ -120,11 +126,11 @@ function switchImage() {
 
 $(document).ready(function()
 {
-    $('#testImg').Jcrop(
+    $('#canvas').Jcrop(
     {
     	onSelect: function(c)
     	{
-        	console.log(c);
+			console.log(imagen);
         	pointX = c.x;
         	pointY = c.y;
       		pointW = c.w;
@@ -133,20 +139,14 @@ $(document).ready(function()
 			const green = [];
 			const blue = [];
 			const alpha = [];
+			//var c = document.createElement("canvas");
+			//ctx = c.getContext('2d');
+			
 
-			//ctx.drawImage(imagen,0,0);
+
+			//ctx.drawImage(imagen,pointX,pointY,pointW,pointH);
 			const pixel = ctx.getImageData(pointX, pointY, pointW, pointH).data;
-
-	/*if (!this.canvas) {
-		this.canvas = document.createElement('canvas');
-		this.canvas.width = this.width;
-		this.canvas.height = this.height;
-		ctx = this.canvas.getContext('2d');
-		ctx.drawImage(this, 0, 0, this.width, this.height);
-	} else {
-		ctx = this.canvas.getContext('2d');
-	}
-	const pixel = ctx.getImageData(pointX, pointY, pointW, pointH).data;*/
+			
 
 	for (let i = 0; i < pixel.length; i++) {
 		red[contador] = pixel[i];
@@ -158,9 +158,13 @@ $(document).ready(function()
 		alpha[contador] = pixel[i];
 		contador += 1;
 	}
-	console.log("RED:" + red);
+
+	var redSinCeros = _.without(red, 0);
+	var greenSinCeros = _.without(green, 0);
+	var blueSinCeros = _.without(blue, 0);
+
 	var traceRed = {
-		x: red,
+		x: redSinCeros,
 		type: 'histogram',
 		name: "Rojo",
 		marker: {
@@ -168,7 +172,7 @@ $(document).ready(function()
 		},
 	};
 	var traceGreen = {
-		x: green,
+		x: greenSinCeros,
 		type: 'histogram',
 		name: "Verde",
 		marker: {
@@ -176,7 +180,7 @@ $(document).ready(function()
 		},
 	};
 	var traceBlue = {
-		x: blue,
+		x: blueSinCeros,
 		type: 'histogram',
 		name: "Azul",
 		marker: {

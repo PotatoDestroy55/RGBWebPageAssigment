@@ -9,7 +9,7 @@
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/styles.css">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-umd-min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.js"></script>
@@ -22,12 +22,16 @@
   </div>
   
 	<div class="container">
-	  		
+		
 		<div class="imagenFlex">
 	  <div class="imagenSelectData">
 		<div class="cuadroImg">
-		  <canvas id="canvas"></canvas>
-		  <img class="img-thumbnail" id="testImg" name="myImage" src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
+			
+			<div class="sos">
+				<canvas id="canvas"></canvas>
+			</div>
+			
+			<img class="imgCambiante" style="display: none;" id="testImg" name="myImage" alt="Cargando..." src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
 		  
 		</div>
 		<div class="TituloSeleccion">
@@ -43,7 +47,6 @@
 			<option value="4">Imagen 4</option>
 			<option value="5">Imagen 5</option>
 			<option value="6">Imagen 6</option>
-			<option value="7">Imagen 7</option>
 		  </select>
 		</form>
 	  </div>

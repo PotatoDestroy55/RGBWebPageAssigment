@@ -48,6 +48,25 @@
     max-width: 100%;
 }
 
+#testImage
+{
+    display: none;
+}
+
+.sos
+{
+    width: 100%;
+    max-width: 200px;
+
+}
+
+canvas{
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+}
+
 .respuestaFlex {
     line-height: 3rem;
     font-family: 'Source Code Pro', serif;
