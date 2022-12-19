@@ -1,123 +1,121 @@
 .RGBWEB {
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
+	background-color: aliceblue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-content: center;
 }
 
 .container {
-    padding: 10px;
-    border-width: 3px;
-    display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    align-items: flex-start;
-    width: 945px;
-    height: 915px;
+	padding: 10px;
+	border-width: 3px;
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	align-items: flex-start;
+	width: 945px;
+	height: 915px;
 }
 .header{
-    width: 100%;
-    max-width: 400px;
-    padding: 20px;
+	width: 100%;
+	max-width: 400px;
+	padding: 20px;
+	
 }
 
 .imagenSelectData {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    column-gap: 30px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	column-gap: 30px;
 }
 
 .imagenFlex {
-    display: flex;
-    flex-direction: column;
-    column-gap: 40px;
-    border-width: 3px;
-    padding: 20px;
+	display: flex;
+	flex-direction: column;
+	column-gap: 40px;
+	border-width: 3px;
+	padding: 20px;
 
 }
 
 .cuadroImg {
-    max-width: 200px;
-    width: 100%;
+	max-width: 200px;
+	width: 100%;
 }
 
 .imgCambiante {
-    display: block;
-    max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 #testImage
 {
-    display: none;
+	display: none;
 }
 
 .sos
 {
-    width: 100%;
-    max-width: 200px;
+	width: 100%;
+	max-width: 200px;
 
 }
 
 canvas{
-    display: block;
-    width: 100%;
-    max-width: 200px;
-    height: 200px;
+	display: block;
 }
 
 .respuestaFlex {
-    line-height: 3rem;
-    font-family: 'Source Code Pro', serif;
-    font-size: 1.5rem;
+	line-height: 3rem;
+	font-family: 'Source Code Pro', serif;
+	font-size: 1.5rem;
 }
 
 select {
-    appearance: none;
-    outline: none;
-    background-color: transparent;
-    border: none;
-    padding: 0 2em 0 0;
-    margin: 0;
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: inherit;
-    line-height: inherit;
-    font-weight: bold;
-    color: rgb(34, 37, 40);
+	appearance: none;
+	outline: none;
+	background-color: transparent;
+	border: none;
+	padding: 0 2em 0 0;
+	margin: 0;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
+	font-weight: bold;
+	color: rgb(34, 37, 40);
 }
 
 .grafosFlex {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
 }
 
 .TituloSeleccion {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
 }
 
 .footer {
-    background-color: rgb(195, 202, 237);
-    width: 100%;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+	background-color: rgb(195, 202, 237);
+	width: 100%;
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 .footer_copyright {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    margin: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	margin: 2rem;
 }
 
 .footer_copyright ul {
-list-style: none;
+	list-style: none;
 }
