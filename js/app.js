@@ -20,106 +20,106 @@ var pointH = 0;
 var pointX = 0;
 var pointY = 0;
 
-ctx.drawImage(imagen, 0, 0,c.width, c.height);
+ctx.drawImage(imagen, 0, 0, c.width, c.height);
 
 var imageList = Array();
 
 fetch('json/imagen1.json')
-.then((response) => {
-	return response.json(); 
-})
-.then((json) => metaData.innerHTML = 
-	"Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: "+ json.peso+ "<br>Url: "+json.url+ "<br>Resolución: "+json.res+ "<br>Descripción: "+ json.des + "<br>Fecha de creación: "+json.date);
+	.then((response) => {
+		return response.json();
+	})// Texto a mostrar de la metadata 
+	.then((json) => metaData.innerHTML =
+		"Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: " + json.peso + "<br>Url: " + json.url + "<br>Resolución: " + json.res + "<br>Descripción: " + json.des + "<br>Fecha de creación: " + json.date);
 
 for (var i = 1; i <= 7; i++) {
 	imageList[i] = new Image(70, 70);
-	imageList[i].src = "https://i.postimg.cc/" + idLinksImages[i-1] + "/" +i+ ".jpg";
-	
+	imageList[i].src = "https://i.postimg.cc/" + idLinksImages[i - 1] + "/" + i + ".jpg";
+
 }
+// Cambiar entre imágenes
 function switchImage() {
 	var selectedImage = document.myForm.switch.options[document.myForm.switch.selectedIndex].value;
-	
+
 	document.myImage.src = imageList[selectedImage].src;
-	
-	fetch('json/imagen' + (selectedImage)+'.json')
-	.then((response) => {
-		return response.json(); 
-	})
-	.then((json) => metaData.innerHTML= "Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: "+ json.peso+ "<br>Url: "+json.url+ "<br>Resolución: "+json.res+ "<br>Descripción: "+ json.des + "<br>Fecha de creación: "+json.date);
-	ctx.drawImage(imagen, 0, 0,c.width, c.height);
+
+	fetch('json/imagen' + (selectedImage) + '.json')
+		.then((response) => {
+			return response.json();
+		})
+		.then((json) => metaData.innerHTML = "Nombre: " + json.nombre + "<br>Formato: " + json.formato + "<br>Peso: " + json.peso + "<br>Url: " + json.url + "<br>Resolución: " + json.res + "<br>Descripción: " + json.des + "<br>Fecha de creación: " + json.date);
+	ctx.drawImage(imagen, 0, 0, c.width, c.height);
 }
 
 
 
-$(document).ready(function()
-{
-    $('#canvas').Jcrop(
-    {
-    	onSelect: function(c)
-    	{
-        	pointX = c.x;
-        	pointY = c.y;
-      		pointW = c.w;
-     		pointH = c.h;
-     		const red = [];
-			const green = [];
-			const blue = [];
-			const alpha = [];
-			
-			const pixel = ctx.getImageData(pointX, pointY, pointW, pointH).data;
-			
+$(document).ready(function () {
+	$('#canvas').Jcrop(
+		{
+			onSelect: function (c) {
+				pointX = c.x;
+				pointY = c.y;
+				pointW = c.w;
+				pointH = c.h;
+				const red = [];
+				const green = [];
+				const blue = [];
+				const alpha = [];
+				// Obtener el recuadro de la imagen que se quiere analizar en el histograma
+				const pixel = ctx.getImageData(pointX, pointY, pointW, pointH).data;
 
-			for (let i = 0; i < pixel.length; i++) {
-				red[contador] = pixel[i];
-				i += 1;
-				green[contador] = pixel[i];
-				i += 1;
-				blue[contador] = pixel[i];
-				i += 1;
-				alpha[contador] = pixel[i];
-				contador += 1;
+
+				for (let i = 0; i < pixel.length; i++) {
+					red[contador] = pixel[i];
+					i += 1;
+					green[contador] = pixel[i];
+					i += 1;
+					blue[contador] = pixel[i];
+					i += 1;
+					alpha[contador] = pixel[i];
+					contador += 1;
+				}
+
+				var redSinCeros = _.without(red, 0);
+				var greenSinCeros = _.without(green, 0);
+				var blueSinCeros = _.without(blue, 0);
+				// Histogramas de RGB
+				var traceRed = {
+					x: redSinCeros,
+					type: 'histogram',
+					name: "Rojo",
+					marker: {
+						color: 'red',
+					},
+				};
+				var traceGreen = {
+					x: greenSinCeros,
+					type: 'histogram',
+					name: "Verde",
+					marker: {
+						color: 'green',
+					},
+				};
+				var traceBlue = {
+					x: blueSinCeros,
+					type: 'histogram',
+					name: "Azul",
+					marker: {
+						color: 'blue',
+					},
+				};
+				//Tamaño del histograma
+				var layout = {
+					autosize: false,
+					width: 500,
+					height: 300,
+				};
+				//Mostrar la información de los histogramas
+				var data1 = [traceRed];
+				var data2 = [traceGreen];
+				var data3 = [traceBlue];
+				Plotly.newPlot('barraRoja', data1, layout);
+				Plotly.newPlot('barraVerde', data2, layout);
+				Plotly.newPlot('barraAzul', data3, layout);
 			}
-
-			var redSinCeros = _.without(red, 0);
-			var greenSinCeros = _.without(green, 0);
-			var blueSinCeros = _.without(blue, 0);
-
-			var traceRed = {
-				x: redSinCeros,
-				type: 'histogram',
-				name: "Rojo",
-				marker: {
-					color: 'red',
-				},
-			};
-			var traceGreen = {
-				x: greenSinCeros,
-				type: 'histogram',
-				name: "Verde",
-				marker: {
-					color: 'green',
-				},
-			};
-			var traceBlue = {
-				x: blueSinCeros,
-				type: 'histogram',
-				name: "Azul",
-				marker: {
-					color: 'blue',
-				},
-			};
-
-			var layout = {
-				autosize: false,
-				width: 500,
-				height: 300,
-			};
-			var data1 = [traceRed];
-			var data2 = [traceGreen];
-			var data3 = [traceBlue];
-			Plotly.newPlot('barraRoja', data1, layout);
-			Plotly.newPlot('barraVerde', data2, layout);
-			Plotly.newPlot('barraAzul', data3, layout);
-		}
-	})
+		})
 })

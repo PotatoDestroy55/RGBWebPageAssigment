@@ -1,3 +1,4 @@
+/* Formato para toda la página web  */
 .RGBWEB {
 	background-color: aliceblue;
 	display: flex;
@@ -6,6 +7,8 @@
 	align-content: center;
 }
 
+/* Formato para el contenedor donde está la imagen, 
+    la metadata y los histogramas */
 .container {
 	padding: 10px;
 	border-width: 3px;
@@ -16,13 +19,17 @@
 	width: 945px;
 	height: 915px;
 }
-.header{
+
+/* Formato para la posición del logo institucional */
+.header {
 	width: 100%;
 	max-width: 400px;
 	padding: 20px;
-	
+
 }
 
+/* Configuración para seleccionar una de las imágenes 
+    y mostrarla */
 .imagenSelectData {
 	display: flex;
 	flex-direction: row;
@@ -30,6 +37,7 @@
 	column-gap: 30px;
 }
 
+/* Configuración para las imágenes y su metadata correspondiente */
 .imagenFlex {
 	display: flex;
 	flex-direction: column;
@@ -39,29 +47,30 @@
 
 }
 
+/* Posición para asignar donde estará la imagen*/
+
 .cuadroImg {
 	max-width: 200px;
 	width: 100%;
 }
 
+/* Lugar de la imagen del logo*/
 .imgCambiante {
 	display: block;
 	max-width: 100%;
 }
 
-#testImage
-{
+#testImage {
 	display: none;
 }
 
-.sos
-{
+.sos {
 	width: 100%;
 	max-width: 200px;
 
 }
 
-canvas{
+canvas {
 	display: block;
 }
 
@@ -70,6 +79,8 @@ canvas{
 	font-family: 'Source Code Pro', serif;
 	font-size: 1.5rem;
 }
+
+/* Configuración para cambiar de imágenes */
 
 select {
 	appearance: none;
@@ -87,17 +98,22 @@ select {
 	color: rgb(34, 37, 40);
 }
 
+/* Formato para los histogramas*/
 .grafosFlex {
 	padding: 0;
 	display: flex;
 	flex-direction: column;
 }
 
+/* Formato para el texto "Seleccione una imagen */
+
 .TituloSeleccion {
 	display: flex;
 	flex-direction: column;
 
 }
+
+/* Formato para todo el footer */
 
 .footer {
 	background-color: rgb(195, 202, 237);
@@ -108,6 +124,9 @@ select {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+/* Configuración para la información del texto del footer */
+
 .footer_copyright {
 	display: flex;
 	justify-content: center;
@@ -115,6 +134,8 @@ select {
 	width: fit-content;
 	margin: 2rem;
 }
+
+/* Formato para las listas no ordenadas del footer*/
 
 .footer_copyright ul {
 	list-style: none;

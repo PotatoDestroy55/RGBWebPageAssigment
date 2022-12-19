@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-umd-min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.css">
@@ -16,84 +17,92 @@
 
 	<title>RGBViewer</title>
 </head>
+<!--Cuerpo de la clase -->
+
 <body class="RGBWEB">
-  <div class="header">
-	<img src="fotos_del_sitio/itch.jpg" class="imgCambiante">
-  </div>
-  
+	<div class="header">
+		<!-- Agregar el logo institucional -->
+		<img src="fotos_del_sitio/itch.jpg" class="imgCambiante">
+	</div>
+
 	<div class="container">
-		
+		<!-- Clase para la imagen y su metadata -->
 		<div class="imagenFlex">
-	  <div class="imagenSelectData">
-		<div class="cuadroImg">
-			
-			<div class="sos">
-				<canvas id="canvas"></canvas>
+			<div class="imagenSelectData">
+				<!-- Clase para la imagen mostrada -->
+				<div class="cuadroImg">
+
+					<div class="sos">
+						<canvas id="canvas"></canvas>
+					</div>
+					<!-- Clase para intercambiar entre imágenes -->
+					<img class="imgCambiante" style="display: none;" id="testImg" name="myImage" alt="Cargando..."
+						src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
+				</div>
+				<!-- Titulo de "Seleccione una imagen" -->
+				<div class="TituloSeleccion">
+					<h5>Seleccione una imagen</h5>
+
+					<!-- Para el recuadro de intercambio entre imágenes -->
+					<form method="" action="" name="myForm" class="img-thumbnail">
+						<!-- Seleccionar entre imágenes -->
+						<select name="switch" class="form-control" onchange="switchImage();">
+							<option value="1">Imagen 1</option>
+							<option value="2">Imagen 2</option>
+							<option value="3">Imagen 3</option>
+							<option value="4">Imagen 4</option>
+							<option value="5">Imagen 5</option>
+							<option value="6">Imagen 6</option>
+						</select>
+					</form>
+				</div>
 			</div>
-			
-			<img class="imgCambiante" style="display: none;" id="testImg" name="myImage" alt="Cargando..." src="https://i.postimg.cc/gJ8gwC8Q/1.jpg" crossorigin="anonymous">
-		</div>
-		<div class="TituloSeleccion">
-		<h5>Seleccione una imagen</h5>
-	  
+			<h2>Información de la imagen</h2>
+			<!-- Histogramas -->
+			<div class="well well-lg">
+				<div id="metaData" class="respuestaFlex" name="myMetaData"></div>
+			</div>
 
-		<form method="" action="" name="myForm" class="img-thumbnail">
-	   
-		  <select name="switch" class="form-control" onchange="switchImage();">
-			<option value="1">Imagen 1</option>
-			<option value="2">Imagen 2</option>
-			<option value="3">Imagen 3</option>
-			<option value="4">Imagen 4</option>
-			<option value="5">Imagen 5</option>
-			<option value="6">Imagen 6</option>
-		  </select>
-		</form>
-	  </div>
-	  </div>
-	  <h2>Información de la imagen</h2>
-	  <div class="well well-lg" >
-		<div id="metaData" class="respuestaFlex" name="myMetaData"></div>
-	  </div>
-	  
 		</div>
-		
 
+		<!-- Clase para cada uno de los 3 histogramas -->
 		<div class="grafosFlex">
 			<div id="barraRoja"></div>
 			<div id="barraVerde"></div>
-			<div id="barraAzul"></div>  
-		   
+			<div id="barraAzul"></div>
+
 		</div>
 
 	</div>
 
-	  <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
 
 	<footer class="footer ">
-	
-	   </div>
-		<div class="footer_copyright">
 
-		<ul>  
-		<li><b>Realizado por:</b></li>
-		<li><b>Kevin Martín Castillo Nadal</b></li>
-		<li><b>Jorge Adrian Sansores Torres</b></li>
-		</ul>
-
-		<ul>
-		  <li><b>Nombre del maestro:</b></li>
-		  <li><b>Julio Alejandro Carillo Aleman</b></li>
-		</ul>
-
-		<ul>
-		  <li><b>Fecha: 19/12/2022</b></li>
-		</ul>
 		</div>
-		
-	  </div>
-	  
+		<!-- Texto del footer -->
+		<div class="footer_copyright">
+			<!-- Listas no ordenadas para el footer -->
+			<ul>
+				<li><b>Realizado por:</b></li>
+				<li><b>Kevin Martín Castillo Nadal</b></li>
+				<li><b>Jorge Adrian Sansores Torres</b></li>
+			</ul>
 
-  </footer>
+			<ul>
+				<li><b>Nombre del maestro:</b></li>
+				<li><b>Julio Alejandro Carillo Aleman</b></li>
+			</ul>
+
+			<ul>
+				<li><b>Fecha: 19/12/2022</b></li>
+			</ul>
+		</div>
+
+		</div>
+
+
+	</footer>
 
 </body>
 
